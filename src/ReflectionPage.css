@@ -1,0 +1,62 @@
+/* make sure this file is imported AFTER your global style.css */
+.reflection-page {
+    padding: 2rem;
+    /* or whatever spacing you need */
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* initial state: moved down 50px & transparent */
+.title-reflection {
+    margin-top: 3vh;
+    color: white;
+    font-family: var(--open-sans);
+    font-weight: 600;
+    font-size: 3rem;
+    transform: translateY(50px);
+    opacity: 0;
+    filter: blur(8px);
+    transition:
+        opacity 0.6s ease var(--delay),
+        transform 0.6s ease var(--delay),
+        filter 0.6s ease var(--delay);
+}
+
+.reflection-body {
+    opacity: 0;
+    transform: translateY(50px);
+    width: auto;
+    filter: blur(8px);
+    transition:
+        opacity 0.6s ease var(--delay),
+        transform 0.6s ease var(--delay),
+        filter 0.6s ease var(--delay);
+    color: rgb(206, 206, 206);
+}
+
+.reflection-pic {
+    width: 50vw;
+    transform: translateY(50px);
+    opacity: 0;
+    filter: blur(8px);
+    transition:
+        opacity 0.6s ease var(--delay),
+        transform 0.6s ease var(--delay),
+        filter 0.6s ease var(--delay);
+    margin: 5vh auto;
+    border-radius: 30px;
+}
+
+/* when .show is added, slide into place */
+.title-reflection.show,
+.reflection-pic.show,
+.reflection-body.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.title-reflection.show { --delay: 0.3s; }
+.reflection-pic.show   { --delay: 0.5s; }
+.reflection-body.show  { --delay: 0.7s; }

@@ -1,0 +1,600 @@
+/*--------------------------------------------------
+  FONTS
+--------------------------------------------------*/
+@import url('https://fonts.cdnfonts.com/css/bitsumishi');
+
+/*--------------------------------------------------
+  ROOT VARIABLES
+--------------------------------------------------*/
+:root {
+    --black: #000;
+    --white: #fff;
+    --light-gray: #eee;
+    --mid-gray: #b4b4b4;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --bg-semi: rgba(0, 0, 0, 0.7);
+    --font-main: 'Bitsumishi', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-sans: 'Open Sans', sans-serif;
+    --fast: 0.2s ease;
+    --med: 0.5s ease;
+    --slow: 1s ease-out;
+}
+
+/*--------------------------------------------------
+  RESET & GLOBALS
+--------------------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100vh;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-sans);
+}
+
+/*--------------------------------------------------
+  NAVBAR
+--------------------------------------------------*/
+nav {
+    position: fixed;
+    inset: 0 auto auto 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: var(--bg-semi);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 1000;
+    width: 100vw;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* margin-left: 100px; */
+    font-family: var(--font-main);
+    font-size: 17px;
+    color: var(--white);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logotitle {
+    font-size: 22px;
+}
+
+#logo img {
+    width: 32px;
+    filter: invert(1);
+}
+
+#logo div p {
+    margin: 0;
+}
+
+#sub-title {
+    font-family: var(--font-roboto);
+    font-size: 12px;
+    color: rgb(214, 214, 214);
+    width: 120%;
+    text-align: left;
+}
+
+#navlist {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#navlist li {
+    width: 110px;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    color: rgb(182, 182, 182);
+    transition: color var(--fast), background var(--fast);
+    font-size: 14px;
+}
+
+#navlist li:hover {
+    color: var(--light-gray);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navitem a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.navitem.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+
+/*--------------------------------------------------
+  DROPDOWN
+--------------------------------------------------*/
+.nav-wrapper {
+    position: relative;
+    right: -80px;
+}
+
+.nav-dropdown-panel {
+    position: fixed;
+    top: 58px;
+    right: 100px;
+    width: 700px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.773);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--white);
+    z-index: 1001;
+    text-align: center;
+}
+
+.nav-dropdown-panel.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.menu-inside-styler {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 20px 20px;
+    background: rgba(255, 255, 255, 0.057);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    /* height: 250px; */
+    transition: 0.5s ease;
+    text-align: left;
+}
+
+.menu-column .column-heading {
+    font-size: 12px;
+    font-weight: 600;
+    color: #575757;
+    margin: 0;
+    margin-left: 15px;
+}
+
+.menu-content-animated {
+    display: flex;
+    gap: 40px;
+}
+
+.menu-column {
+    padding-right: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-column:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.column-link {
+    width: 270px;
+    margin: 5px 0px;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background var(--fast), color var(--fast);
+}
+
+.column-link .link-label {
+    font-size: 13px;
+    color: var(--white);
+}
+
+.column-link .link-desc {
+    font-size: 0.75rem;
+    color: rgb(136, 136, 136);
+    margin-top: 0.15rem;
+    line-height: 1.2;
+}
+
+.column-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notice {
+    font-size: 12px;
+    margin: 0 auto;
+    color: rgb(222, 222, 222);
+    padding: 10px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    max-width: 100%;
+}
+
+.notice strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+/*--------------------------------------------------
+  BACKGROUND + MAIN
+--------------------------------------------------*/
+.background {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    background: url("./img/background.jpeg") center/contain no-repeat;
+    opacity: 0.7;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+.maincontent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*--------------------------------------------------
+  TITLES & ANIMATIONS
+--------------------------------------------------*/
+.the,
+.firstname,
+.lastname,
+.actionbuttons {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 2s ease-out, transform 1s ease-out;
+    text-align: center;
+    font-family: var(--font-main);
+    padding: 0px;
+}
+
+.the {
+    top: 160px;
+    font-size: 75px;
+    width: 50%;
+    padding: 50px 200px;
+}
+
+.firstname {
+    top: 255px;
+    font-size: 165px;
+    width: 50%;
+    z-index: 1;
+}
+
+.lastname {
+    top: 390px;
+    font-size: 135px;
+    z-index: 3;
+}
+
+.actionbuttons {
+    top: 200px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1001;
+    width: 80%;
+}
+
+.the.show,
+.firstname.show,
+.lastname.show,
+.actionbuttons.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*--------------------------------------------------
+  BUTTONS
+--------------------------------------------------*/
+.actionbutton,
+.metallic-button {
+    position: relative;
+    padding: 15px 20px;
+    font-size: 15px;
+    font-family: var(--font-sans);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background var(--med), color var(--med);
+}
+
+.actionbutton {
+    background: rgb(216, 216, 216);
+    color: var(--black);
+    font-weight: 600;
+    width: 200px;
+}
+
+.actionbutton:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.actionbuttons .actionbutton:nth-child(2):hover {
+    background: rgb(216, 216, 216, 0.0);
+    color: var(--black);
+}
+
+.metallic-button {
+    width: 250px;
+    background: none;
+    overflow: hidden;
+}
+
+.gradient-text,
+.white-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--med);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--white), var(--mid-gray), #2d2d2d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 1;
+}
+
+.white-text {
+    color: var(--white);
+    opacity: 0;
+    z-index: 2;
+}
+
+.metallic-button:hover .white-text {
+    opacity: 1;
+}
+
+.metallic-button:hover .gradient-text {
+    opacity: 0;
+}
+
+/*--------------------------------------------------
+  OVERLAY & APP STATE
+--------------------------------------------------*/
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    z-index: 9999;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mainapp {
+    transition: opacity 1s ease-in-out;
+}
+
+.mainapp.invisible {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mainapp.visible {
+    opacity: 1;
+}
+
+/*--------------------------------------------------
+  DESCRIPTION
+--------------------------------------------------*/
+.description-sec {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50vw;
+    height: 40vh;
+    margin-top: 300px;
+}
+
+
+/*--------------------------------------------------
+  FADE-IN BLUR UTILITIES
+--------------------------------------------------*/
+.delay-1 { --delay: 0.1s; }
+.delay-2 { --delay: 0.3s; }
+.delay-3 { --delay: 0.5s; }
+.delay-4 { --delay: 0.8s; }
+.delay-5 { --delay: 0.9s; }
+.delay-6 { --delay: 1.5s; }
+
+/* fade-in-blur utility */
+.fade-in-blur {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+    /* use the CSS variable for transition-delay */
+    transition:
+      opacity 1s ease var(--delay),
+      filter 1s ease var(--delay),
+      transform 1s ease var(--delay);
+}
+
+/* when .show is added, fade to visible */
+.fade-in-blur.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+@keyframes slideFadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFadeInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.menu-content-animated {
+  display: flex;
+  gap: 40px;
+}
+
+/* animation for hovering to the right */
+.slide-fade-in-right {
+  animation: slideFadeInRight 0.3s ease forwards;
+}
+
+/* animation for hovering to the left */
+.slide-fade-in-left {
+  animation: slideFadeInLeft 0.3s ease forwards;
+}
+
+/* Page transition animations */
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.page-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.3s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s ease forwards;
+}
+/* Nav link reset */
+.navlink,
+.navitem span {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.page-content {
+    margin-top: 50px;
+
+}
+
+/* highlight flash on simulated click */
+.column-link.highlight {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.simulate-button {
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    right: 0;
+    bottom: -10vh;
+    width: 100%;
+    background: var(--bg-semi);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    color: rgb(213, 213, 213);
+    border-radius: 30px;
+    border: 1px solid var(--border-light);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    transition: background var(--fast), color var(--fast);
+    width: fit-content;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 1s ease var(--delay),
+        /* will pick up .delay-6’s transition-delay */
+        filter 1s ease var(--delay),
+        transform 1s ease var(--delay),
+        background var(--fast),
+        color var(--fast);
+}
+
+.simulate-button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.simulate-button:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    transition: background var(--fast), color var(--fast);
+}
