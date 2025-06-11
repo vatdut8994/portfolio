@@ -34,7 +34,7 @@ export default function HomeContent({ fadeIn: parentFadeIn, simulateEducation })
             onClick={simulateEducation}
             className={`simulate-button fade-in-blur ${fadeIn ? 'show' : ''} delay-6`}
           >
-            I don't even care man, just show me your Tech Theatre project
+            Just show me your Tech Theatre project man
           </button>
         </div>
       </div>

@@ -265,13 +265,16 @@ nav {
   BACKGROUND + MAIN
 --------------------------------------------------*/
 .background {
-    position: absolute;
+    position: fixed;
     inset: 0;
+    width: 100vw;
     height: 100vh;
-    background: url("/img/background.jpeg") center/contain no-repeat;
+    background: url("/img/background.jpeg") center center no-repeat;
+    background-size: 100vw 100vh;
     opacity: 0.7;
     filter: blur(5px);
     z-index: 0;
+    pointer-events: none;
 }
 
 .maincontent {
