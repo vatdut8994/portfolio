@@ -296,24 +296,25 @@ nav {
     text-align: center;
     font-family: var(--font-main);
     padding: 0px;
+    letter-spacing: 2px;
 }
 
 .the {
-    top: 160px;
+    top: 20vh;
     font-size: 75px;
     width: 50%;
     padding: 50px 200px;
 }
 
 .firstname {
-    top: 255px;
+    top: calc(20vh + 95px);
     font-size: 165px;
     width: 50%;
     z-index: 1;
 }
 
 .lastname {
-    top: 390px;
+    top: calc(20vh + 230px);
     font-size: 135px;
     z-index: 3;
 }
