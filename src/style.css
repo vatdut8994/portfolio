@@ -33,7 +33,7 @@
 }
 
 html {
-    width: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -77,6 +77,10 @@ nav {
     text-decoration: none;
 }
 
+#logo:hover {
+    cursor: pointer;
+}
+
 .logotitle {
     font-size: 22px;
 }
@@ -117,6 +121,7 @@ nav {
 }
 
 #navlist li:hover {
+    cursor: pointer;
     color: var(--light-gray);
     background: rgba(255, 255, 255, 0.1);
 }
@@ -125,7 +130,6 @@ nav {
     text-decoration: none;
     color: inherit;
     font: inherit;
-    cursor: pointer;
     display: inline-block;
 }
 
@@ -264,7 +268,7 @@ nav {
     position: absolute;
     inset: 0;
     height: 100vh;
-    background: url("./img/background.jpeg") center/contain no-repeat;
+    background: url("/img/background.jpeg") center/contain no-repeat;
     opacity: 0.7;
     filter: blur(5px);
     z-index: 0;
