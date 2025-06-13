@@ -11,10 +11,11 @@ export default function TechTheatrePage() {
     const [expandedSize, setExpandedSize] = useState({ w: 0, h: 0 });
     const [backdropState, setBackdropState] = useState('');
 
+    const isTransitioning = activeCard !== null || isCollapsing;
+
+
     useEffect(() => {
-        setAnimate(false);
-        const id = setTimeout(() => setAnimate(true), 20);
-        return () => clearTimeout(id);
+        setAnimate(true); // Just trigger directly
     }, []);
 
     useEffect(() => {
@@ -162,7 +163,7 @@ export default function TechTheatrePage() {
                             return (
                                 <div
                                     key={i}
-                                    className={`section-card${isActive ? ' expanded' : ''}${isClosing ? ' closing' : ''}`}
+                                    className={`section-card${isActive ? ' expanded' : ''}${isClosing ? ' closing' : ''}${isTransitioning ? ' transitioning' : ''}`}
                                     style={{
                                         position: 'absolute',
                                         left: `${left}px`,
@@ -178,13 +179,11 @@ export default function TechTheatrePage() {
                                     <img
                                         src={s.img}
                                         alt={s.title}
-                                    // style={{
-                                    //     // 70% of whatever the card's current height is:
-                                    //     height: isActive
-                                    //         ? `${expandedSize.h * 0.7}px`
-                                    //         : '70%',
-                                    //     width: 'auto',
-                                    // }}
+                                        style={{
+                                            height: isActive ? `${expandedSize.h * 0.7}px` : `${CARD_H * 0.7}px`,
+                                            width: 'auto',
+                                            transition: 'height 0.3s ease'
+                                        }}
                                     />
 
                                     <button

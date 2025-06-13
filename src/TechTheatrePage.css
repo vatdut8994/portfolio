@@ -1,243 +1,252 @@
 @import url('https://fonts.cdnfonts.com/css/bitsumishi');
 
 :root {
-  --black: #000;
-  --white: #fff;
-  --light-gray: #eee;
-  --mid-gray: #b4b4b4;
-  --border-light: rgba(255, 255, 255, 0.1);
-  --bg-semi: rgba(0, 0, 0, 0.7);
-  --font-main: 'Bitsumishi', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-sans: 'Open Sans', sans-serif;
+    --black: #000;
+    --white: #fff;
+    --light-gray: #eee;
+    --mid-gray: #b4b4b4;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --bg-semi: rgba(0, 0, 0, 0.7);
+    --font-main: 'Bitsumishi', sans-serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-sans: 'Open Sans', sans-serif;
 }
 
 .page-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 2rem;
 }
 
 .image-container {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .image-container img {
-  height: 100vh;
-  margin-top: 20px;
-  display: block;
-  border-radius: 8px;
+    height: 100vh;
+    margin-top: 20px;
+    display: block;
+    border-radius: 8px;
 }
 
 .text-overlay {
-  position: absolute;
-  top: 25vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 50vw;
-  z-index: 2;
+    position: absolute;
+    top: 25vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50vw;
+    z-index: 2;
 }
 
 .title {
-  font-size: 5rem;
-  font-family: var(--font-main);
-  color: var(--white);
-  margin: 0;
+    font-size: 5rem;
+    font-family: var(--font-main);
+    color: var(--white);
+    margin: 0;
 }
 
 .title2 {
-  font-size: 4rem;
-  margin-top: 0.5rem;
+    font-size: 4rem;
+    margin-top: 0.5rem;
 }
 
 .description {
-  font-size: 1.2rem;
-  font-family: var(--font-roboto);
-  color: var(--mid-gray);
-  margin-top: 2rem;
+    font-size: 1.2rem;
+    font-family: var(--font-roboto);
+    color: var(--mid-gray);
+    margin-top: 2rem;
 }
 
 .fade-item {
-  opacity: 0;
-  transform: translateY(20px);
-  filter: blur(6px);
-  animation: fadeInUpBlur 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+    animation: fadeInUpBlur 0.6s ease forwards;
 }
 
 @keyframes fadeInUpBlur {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
 .secondsection {
-  margin-top: 100px;
-  min-height: 100vh;
-  padding-bottom: 100px;
-  background: linear-gradient(
-    transparent,
-    rgba(97, 106, 115, 0.12) 30%,
-    rgba(97, 106, 115, 0.15) 70%,
-    rgba(97, 106, 115, 0)
-  );
+    margin-top: 100px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    background: linear-gradient(transparent,
+            rgba(97, 106, 115, 0.12) 30%,
+            rgba(97, 106, 115, 0.15) 70%,
+            rgba(97, 106, 115, 0));
 }
 
 .reflection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .reflection-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 60%;
-  margin: auto;
-  padding-bottom: 100px;
-  border-bottom: 2px solid var(--border-light);
-  position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 100px;
+    border-bottom: 2px solid var(--border-light);
+    position: relative;
 }
 
 .reflection-title {
-  position: absolute;
-  font-family: var(--font-sans);
-  font-size: 3rem;
-  font-weight: 600;
-  left: 0;
-  width: 50%;
-  margin: 0;
+    position: absolute;
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    font-weight: 600;
+    left: 0;
+    width: 50%;
+    margin: 0;
 }
 
 .reflection .description {
-  width: 30%;
-  margin: 0;
-  font-size: 15px;
-  font-family: var(--font-sans);
-  color: rgb(216, 216, 216);
+    width: 30%;
+    margin: 0;
+    font-size: 15px;
+    font-family: var(--font-sans);
+    color: rgb(216, 216, 216);
 }
 
 .reflection-button {
-  background: transparent;
-  color: var(--white);
-  border: none;
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 10px;
-  display: inline-block;
-  transform: translateX(0);
-  transition: color 0.3s ease, transform 0.3s ease;
+    background: transparent;
+    color: var(--white);
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    display: inline-block;
+    transform: translateX(0);
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .reflection-button:hover {
-  color: rgb(215, 215, 215);
-  cursor: pointer;
-  transform: translateX(5px);
+    color: rgb(215, 215, 215);
+    cursor: pointer;
+    transform: translateX(5px);
 }
 
 .sectional {
-  margin-top: 150px;
+    margin-top: 150px;
 }
 
 .sectional-container {
-  display: flex;
+    display: flex;
 }
 
 /* STAGGERED DELAYS */
-.delay-0 { animation-delay:   0ms; }
-.delay-1 { animation-delay: 400ms; }
-.delay-2 { animation-delay: 600ms; }
-.delay-3 { animation-delay: 800ms; }
+.delay-0 {
+    animation-delay: 0ms;
+}
+
+.delay-1 {
+    animation-delay: 400ms;
+}
+
+.delay-2 {
+    animation-delay: 600ms;
+}
+
+.delay-3 {
+    animation-delay: 800ms;
+}
 
 /* ===== SECTION CARDS (moved to bottom) ===== */
 
 .section-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--black);
-  padding: 15px 30px;
-  height: 350px;
-  text-align: center;
-  position: relative;
-  flex-shrink: 0;
-  border-radius: 50px;
-  border: 1px solid transparent;
-  transform-origin: center center;
-  z-index: 100;
-  isolation: isolate;
-  transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background: var(--black);
+    padding: 15px 30px;
+    height: 350px;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    transform-origin: center center;
+    z-index: 100;
+    isolation: isolate;
+    transition: 0.3s ease;
 }
 
 .section-card:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .section-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  background: transparent;
-  pointer-events: none;
-  z-index: 2;
-  transition: background 0.3s ease;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    background: transparent;
+    pointer-events: none;
+    z-index: 2;
+    transition: background 0.3s ease;
 }
 
 .section-card:hover::after {
-  background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .section-card:hover .expand {
-  background-color: rgb(19, 19, 19);
+    background-color: rgb(19, 19, 19);
 }
 
 .section-card h2 {
-  font-family: var(--font-sans);
-  font-size: 1.2rem;
-  color: var(--white);
-  margin: 0;
-  font-weight: 600;
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 0;
+    font-weight: 600;
 }
 
 .section-card img {
-  height: 70%;
-  margin: auto;
-  filter: brightness(0.5);
-  transition: 0.3s ease-in-out;
+    height: 70%;
+    margin: auto;
+    filter: brightness(0.5);
+    transition: 0.3s ease-in-out;
 }
 
 .section-card .text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
 }
 
 .section-card .expand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(15, 15, 15);
-  color: var(--white);
-  font-size: 2em;
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50px;
-  padding-bottom: 3px;
-  pointer-events: none;
-  opacity: 1;
-  transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    color: var(--white);
+    font-size: 2em;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    padding-bottom: 3px;
+    pointer-events: none;
+    opacity: 1;
+    transition: 0.3s ease;
 }
 
 .section-card .expand:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .section-card.expanded .expand {
@@ -249,107 +258,121 @@
 .section-card.expanded {
     z-index: 10001 !important;
     background: black !important;
-    transition: 0.3s ease;  /* smooth move + scale */
+    transition: 0.3s ease;
+    /* smooth move + scale */
     text-align: center;
     isolation: isolate;
     cursor: default;
+    border-radius: 20px !important;
 }
 
 /* backdrop covers viewport */
 .expander-backdrop {
-  position: fixed;
-  bottom: 0; left: 0;
-  width: 100vw; height: 500vh;
-  background: rgba(9, 9, 9, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1500 !important; /* ↑ higher than card */
-  opacity: 0;
-  transition: 0.4s ease;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 500vh;
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1500 !important;
+    /* ↑ higher than card */
+    opacity: 0;
+    transition: 0.4s ease;
 }
 
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
 .section-card.expanded::after,
 .section-card.expanded:hover::after {
-  background: transparent !important;
+    background: transparent !important;
 }
 
-.expander-backdrop.fade-in .expand{
-  opacity: 1;
+.expander-backdrop.fade-in .expand {
+    opacity: 1;
 }
 
-.expander-backdrop.fade-in { opacity: 1; }
+.expander-backdrop.fade-in {
+    opacity: 1;
+}
+
 .expander-backdrop.fade-out {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .close-btn {
-  position: fixed;
-  top: 1rem; left: 1rem;
-  z-index: 2001;
-  font-size: 2rem;
-  background: transparent;
-  border: none;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2001;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
 }
 
-.close-btn:focus { outline: none; }
-.expander-backdrop.fade-in + .close-btn,
+.close-btn:focus {
+    outline: none;
+}
+
+.expander-backdrop.fade-in+.close-btn,
 .close-btn.visible {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Disable hover overlay/highlight in expanded mode */
 .section-card.expanded::after,
 .section-card.expanded:hover::after {
-  background: transparent !important;
+    background: transparent !important;
 }
 
 
 .section-card.expanded.closing .expand {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* position & base styles for close button */
 .section-card .close-card {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  background: transparent;
-  border: none;
-  font-size: 1.8rem;
-  color: var(--white);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-  z-index: 10;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--white);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 10;
 }
 
 /* when expanded: fade it in & enable clicks */
 .section-card.expanded .close-card {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* when collapsing: fade it back out */
 .section-card.expanded.closing .close-card {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* restore pointer for inner interactive elements */
 .section-card.expanded .close-card,
 .section-card.expanded .expand {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .section-title {
@@ -358,39 +381,44 @@
     transition: 0.3s ease;
 }
 
-.section-cart.expanded .section-title{
+.section-cart.expanded .section-title {
     margin: auto !important;
     transition: 0.3s ease;
 }
 
 
 .section-card .text {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    transition: all 0.4s ease;
 }
 
 .section-card.expanded .text {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0;
-  height: 100%;
-  gap: 20px;
-  transition: all 0.4s ease;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    height: 100%;
+    gap: 20px;
+    transition: all 0.3s ease;
 }
 
 .section-title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  transition: all 0.4s ease;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    transition: all 0.3s ease !important;
 }
 
 .section-card.expanded .section-title {
-  font-size: 2.2rem;
-  transform: translateY(-200px);
-  transition: all 0.4s ease;
+    font-size: 3rem;
+    padding-left: 70px;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    font-weight: 600 !important;
+    transform: translateY(-200px);
+    transition: all 0.1s ease;
 }
