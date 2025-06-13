@@ -28,6 +28,7 @@ export default function TechTheatrePage() {
         };
     }, [activeCard, isCollapsing]);
 
+
     // when a card opens, mount backdrop at 0→fade-in
     useEffect(() => {
         if (activeCard !== null) {
@@ -42,6 +43,15 @@ export default function TechTheatrePage() {
             setBackdropState('fade-out');
         }
     }, [isCollapsing]);
+
+    useEffect(() => {
+        // hide nav only while a card is fully expanded (not during collapse)
+        if (activeCard !== null && !isCollapsing) {
+            document.body.classList.add('card-open');
+        } else {
+            document.body.classList.remove('card-open');
+        }
+    }, [activeCard, isCollapsing]);
 
     const slides = [
         { title: 'Lighting and Sound', img: '/img/light-sound.jpg' },
@@ -137,11 +147,12 @@ export default function TechTheatrePage() {
                     <div style={{ position: 'relative', width: '1000px', margin: '0 auto', height: '740px' }}>
                         {slides.map((s, i) => {
                             const isActive = activeCard === i;
+                            const isClosing   = isActive && isCollapsing;
                             const { left, top } = getPosition(i);
                             return (
                                 <div
                                     key={i}
-                                    className={`section-card ${isActive ? 'expanded' : ''}`}
+                                    className={`section-card${isActive ? ' expanded' : ''}${isClosing ? ' closing' : ''}`}
                                     style={{
                                         position: 'absolute',
                                         left: `${left}px`,
