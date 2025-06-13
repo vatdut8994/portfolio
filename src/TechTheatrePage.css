@@ -209,6 +209,7 @@
   height: 70%;
   margin: auto;
   filter: brightness(0.5);
+  transition: 0.3s ease-in-out;
 }
 
 .section-card .text {
@@ -259,7 +260,7 @@
   position: fixed;
   bottom: 0; left: 0;
   width: 100vw; height: 500vh;
-  background: rgba(6, 6, 6, 1);
+  background: rgba(9, 9, 9, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1500 !important; /* ↑ higher than card */
@@ -320,8 +321,8 @@
 /* position & base styles for close button */
 .section-card .close-card {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 30px;
+  right: 30px;
   background: transparent;
   border: none;
   font-size: 1.8rem;
@@ -349,4 +350,47 @@
 .section-card.expanded .close-card,
 .section-card.expanded .expand {
   cursor: pointer;
+}
+
+.section-title {
+    font-weight: 500 !important;
+    font-family: var(--font-sans) !important;
+    transition: 0.3s ease;
+}
+
+.section-cart.expanded .section-title{
+    margin: auto !important;
+    transition: 0.3s ease;
+}
+
+
+.section-card .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  transition: all 0.4s ease;
+}
+
+.section-card.expanded .text {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  height: 100%;
+  gap: 20px;
+  transition: all 0.4s ease;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  transition: all 0.4s ease;
+}
+
+.section-card.expanded .section-title {
+  font-size: 2.2rem;
+  transform: translateY(-200px);
+  transition: all 0.4s ease;
 }
