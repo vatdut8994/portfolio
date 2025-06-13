@@ -12,6 +12,9 @@
     --font-sans: 'Open Sans', sans-serif;
 }
 
+/*-------------------------------------*/
+/*           BASE STYLES               */
+/*-------------------------------------*/
 .page-content {
     display: flex;
     justify-content: center;
@@ -61,6 +64,9 @@
     margin-top: 2rem;
 }
 
+/*-------------------------------------*/
+/*         ANIMATIONS & DELAYS         */
+/*-------------------------------------*/
 .fade-item {
     opacity: 0;
     transform: translateY(20px);
@@ -76,6 +82,32 @@
     }
 }
 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Staggered delays */
+.delay-0 {
+    animation-delay: 0ms;
+}
+
+.delay-1 {
+    animation-delay: 400ms;
+}
+
+.delay-2 {
+    animation-delay: 600ms;
+}
+
+.delay-3 {
+    animation-delay: 800ms;
+}
+
+/*-------------------------------------*/
+/*       SECOND SECTION & REFLECTION   */
+/*-------------------------------------*/
 .secondsection {
     margin-top: 100px;
     min-height: 100vh;
@@ -129,7 +161,6 @@
     font-weight: 600;
     margin-top: 10px;
     display: inline-block;
-    transform: translateX(0);
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -139,6 +170,9 @@
     transform: translateX(5px);
 }
 
+/*-------------------------------------*/
+/*         SECTION & SECTIONAL         */
+/*-------------------------------------*/
 .sectional {
     margin-top: 150px;
 }
@@ -147,25 +181,7 @@
     display: flex;
 }
 
-/* STAGGERED DELAYS */
-.delay-0 {
-    animation-delay: 0ms;
-}
-
-.delay-1 {
-    animation-delay: 400ms;
-}
-
-.delay-2 {
-    animation-delay: 600ms;
-}
-
-.delay-3 {
-    animation-delay: 800ms;
-}
-
-/* ===== SECTION CARDS (moved to bottom) ===== */
-
+/* Section Card */
 .section-card {
     display: flex;
     flex-direction: column;
@@ -177,14 +193,12 @@
     flex-shrink: 0;
     border-radius: 50px;
     border: 1px solid transparent;
-    transform-origin: center center;
+    transform-origin: center;
     z-index: 100;
     isolation: isolate;
     transition: 0.3s ease;
-}
-
-.section-card:hover {
     cursor: pointer;
+    overflow: hidden;
 }
 
 .section-card::after {
@@ -221,11 +235,13 @@
     transition: 0.3s ease-in-out;
 }
 
+/* Shared text styling inside section-card */
 .section-card .text {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
+    transition: all 0.4s ease;
 }
 
 .section-card .expand {
@@ -249,24 +265,60 @@
     cursor: pointer;
 }
 
-.section-card.expanded .expand {
-    /* pointer-events: none; */
-    opacity: 0;
-    transition: 0.3s ease;
-}
-
 .section-card.expanded {
     z-index: 10001 !important;
-    background: black !important;
-    transition: 0.3s ease;
-    /* smooth move + scale */
+    background: var(--black) !important;
     text-align: center;
     isolation: isolate;
     cursor: default;
     border-radius: 20px !important;
+    transition: 0.3s ease;
 }
 
-/* backdrop covers viewport */
+.section-card.expanded::after,
+.section-card.expanded:hover::after {
+    background: transparent !important;
+}
+
+.section-card.expanded .expand {
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.section-card.expanded.closing .expand {
+    opacity: 1;
+    transition: 0.3s ease;
+}
+
+/* Close button inside card */
+.section-card .close-card {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--white);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.section-card.expanded .close-card {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.section-card.expanded.closing .close-card {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/*-------------------------------------*/
+/*         EXPANDER & CLOSE BTN        */
+/*-------------------------------------*/
 .expander-backdrop {
     position: fixed;
     bottom: 0;
@@ -277,28 +329,12 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1500 !important;
-    /* ↑ higher than card */
     opacity: 0;
     transition: 0.4s ease;
 }
 
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-.section-card.expanded::after,
-.section-card.expanded:hover::after {
-    background: transparent !important;
-}
-
+.expander-backdrop.fade-in,
 .expander-backdrop.fade-in .expand {
-    opacity: 1;
-}
-
-.expander-backdrop.fade-in {
     opacity: 1;
 }
 
@@ -315,7 +351,7 @@
     font-size: 2rem;
     background: transparent;
     border: none;
-    color: white;
+    color: var(--white);
     opacity: 0;
     transition: opacity 0.4s ease;
     cursor: pointer;
@@ -330,95 +366,150 @@
     opacity: 1;
 }
 
-/* Disable hover overlay/highlight in expanded mode */
-.section-card.expanded::after,
-.section-card.expanded:hover::after {
-    background: transparent !important;
-}
-
-
-.section-card.expanded.closing .expand {
-    opacity: 1;
-}
-
-/* position & base styles for close button */
-.section-card .close-card {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: transparent;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--white);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* when expanded: fade it in & enable clicks */
-.section-card.expanded .close-card {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* when collapsing: fade it back out */
-.section-card.expanded.closing .close-card {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* restore pointer for inner interactive elements */
-.section-card.expanded .close-card,
-.section-card.expanded .expand {
-    cursor: pointer;
-}
-
-.section-title {
-    font-weight: 500 !important;
-    font-family: var(--font-sans) !important;
-    transition: 0.3s ease;
-}
-
-.section-cart.expanded .section-title {
-    margin: auto !important;
-    transition: 0.3s ease;
-}
-
-
-.section-card .text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-    transition: all 0.4s ease;
-}
-
-.section-card.expanded .text {
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    height: 100%;
-    gap: 20px;
-    transition: all 0.3s ease;
-}
-
+/*-------------------------------------*/
+/*           SECTION TITLES            */
+/*-------------------------------------*/
 .section-title {
     font-size: 1.2rem;
     font-weight: 500;
     font-family: var(--font-sans);
-    transition: all 0.3s ease !important;
+    transition: all 0.2s ease;
 }
+
 
 .section-card.expanded .section-title {
     font-size: 3rem;
     padding-left: 70px;
     left: 0 !important;
     right: 0 !important;
-    margin: 0 !important;
+    margin: auto !important;
     font-weight: 600 !important;
     transform: translateY(-200px);
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
+}
+
+
+.card-body {
+    opacity: 0;
+    /* start invisible */
+    transform: translateY(20px);
+    filter: blur(6px);
+    flex: 1;
+    /* fill remaining space */
+    padding-top: 1rem;
+    /* whatever spacing you like */
+    /* remove overflow:hidden or auto here */
+}
+
+.fade-item-body {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+    animation: fadeInUpBlur 0.6s ease forwards;
+}
+
+/* 3) When expanded, let the ENTIRE CARD scroll */
+.section-card.expanded {
+    overflow-y: auto;
+    /* now the image, title and body all scroll together */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    padding: 50px;
+}
+
+.section-card.expanded::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.overlay-title {
+    /* position: absolute; */
+    /* top: 50px; */
+    /* left: 0; */
+    /* right: 0; */
+    color: rgb(185, 185, 185);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-align: left;
+}
+
+.overlay-title p{
+    margin-top: 5px;
+    color: rgb(104, 104, 104);
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 5px;
+    width: 90%;
+}
+
+.twoinone {
+    display: flex;
+    border-bottom: 1px solid rgb(25, 25, 25);
+    justify-content: center;
+}
+
+.twoinone img {
+    margin: auto;
+    max-width: 90%;
+    height: auto;
+}
+
+.twoinone hr {
+    border: 1px solid rgb(25, 25, 25);
+}
+
+.toinone div{
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-img{
+    display: flex;
+    align-items: center;
+}
+
+.text-img img{
+    width: 50%;
+    margin: 20px 0px;
+}
+
+.text-img .overlay-title{
+    text-align: left;
+    width: 60%;
+}
+
+.text-img p{
+    margin: 5px 0;
+}
+
+.final-learned {
+    text-align: left;
+    margin-top: 20px;
+    padding-bottom: 10vh;
+}
+
+.final-learned strong{
+    color: rgb(150, 150, 150);
+}
+
+.final-learned p{
+    margin: 15px 5px;
+    font-size: 14px;
+}
+
+.finalset{
+    flex-direction: column;
+}
+
+.finalset .overlay-title{
+    width: 100%;
 }
