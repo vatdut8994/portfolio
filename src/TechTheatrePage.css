@@ -149,109 +149,6 @@
   display: flex;
 }
 
-/* CAROUSEL BASE */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 60vw;
-  margin: auto;
-  mask-image: none;
-  -webkit-mask-image: none;
-}
-
-.carousel.fade-left {
-  mask-image: linear-gradient(to right, transparent, black 30%);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 30%);
-}
-
-.carousel.fade-right {
-  mask-image: linear-gradient(to left, transparent, black 30%);
-  -webkit-mask-image: linear-gradient(to left, transparent, black 30%);
-}
-
-.carousel.fade-left.fade-right {
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 30%,
-    black 70%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 30%,
-    black 70%,
-    transparent
-  );
-}
-
-.fade-overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 15%;
-  pointer-events: none;
-  z-index: 5;
-  transition: opacity 0.4s ease;
-}
-
-.fade-overlay.left {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
-}
-
-.fade-overlay.right {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
-}
-
-.fade-overlay.hidden {
-  opacity: 0;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
-}
-
-.nav {
-  position: static;
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.nav:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.nav-buttons {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1rem;
-  z-index: 1000;
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.089);
-  border-radius: 20px;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid var(--border-light);
-  margin-top: 20px;
-}
-
 /* STAGGERED DELAYS */
 .delay-0 { animation-delay:   0ms; }
 .delay-1 { animation-delay: 400ms; }
@@ -271,10 +168,10 @@
   flex-shrink: 0;
   border-radius: 50px;
   border: 1px solid transparent;
-  transition: 0.5s ease;
   transform-origin: center center;
-  z-index: 2000;
+  z-index: 100;
   isolation: isolate;
+  transition: 0.3s ease;
 }
 
 .section-card:hover {
@@ -289,7 +186,7 @@
   background: transparent;
   pointer-events: none;
   z-index: 2;
-  transition: background 0.5s ease;
+  transition: background 0.3s ease;
 }
 
 .section-card:hover::after {
@@ -311,7 +208,7 @@
 .section-card img {
   height: 70%;
   margin: auto;
-  filter: brightness(0.6);
+  filter: brightness(0.5);
 }
 
 .section-card .text {
@@ -336,8 +233,6 @@
   pointer-events: none;
   opacity: 1;
   transition: 0.3s ease;
-  opacity: 1;
-  transition: opacity 0.5s ease;
 }
 
 .section-card .expand:hover {
@@ -347,15 +242,16 @@
 .section-card.expanded .expand {
     /* pointer-events: none; */
     opacity: 0;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 }
 
 .section-card.expanded {
-    z-index: 9999 !important;
+    z-index: 10001 !important;
     background: black !important;
-    transition: 0.5s ease;  /* smooth move + scale */
+    transition: 0.3s ease;  /* smooth move + scale */
     text-align: center;
     isolation: isolate;
+    cursor: default;
 }
 
 /* backdrop covers viewport */
@@ -366,10 +262,11 @@
   background: rgba(6, 6, 6, 1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: 1000 !important;
+  z-index: 1500 !important; /* ↑ higher than card */
   opacity: 0;
   transition: 0.4s ease;
 }
+
 
 @keyframes fadeIn {
   to { opacity: 1; }
@@ -418,4 +315,38 @@
 
 .section-card.expanded.closing .expand {
   opacity: 1;
+}
+
+/* position & base styles for close button */
+.section-card .close-card {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* when expanded: fade it in & enable clicks */
+.section-card.expanded .close-card {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* when collapsing: fade it back out */
+.section-card.expanded.closing .close-card {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* restore pointer for inner interactive elements */
+.section-card.expanded .close-card,
+.section-card.expanded .expand {
+  cursor: pointer;
 }

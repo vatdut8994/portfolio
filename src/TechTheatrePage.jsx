@@ -6,8 +6,9 @@ export default function TechTheatrePage() {
     const [animate, setAnimate] = useState(false);
     const [activeCard, setActiveCard] = useState(null);
     const [isCollapsing, setIsCollapsing] = useState(false);
-    const [transformStr, setTransformStr] = useState('');
-    const [backdropState, setBackdropState] = useState(''); // '', 'fade-in', 'fade-out'
+    const [transformStr, setTransformStr] = useState('')
+    const [expandedSize, setExpandedSize] = useState({ w: 0, h: 0 });
+    const [backdropState, setBackdropState] = useState(''); 
 
     useEffect(() => {
         setAnimate(false);
@@ -27,7 +28,6 @@ export default function TechTheatrePage() {
             document.body.style.overflow = '';
         };
     }, [activeCard, isCollapsing]);
-
 
     // when a card opens, mount backdrop at 0→fade-in
     useEffect(() => {
@@ -76,9 +76,8 @@ export default function TechTheatrePage() {
             return;
         }
 
-        // open
+        // open card without scrolling behavior
         const node = e.currentTarget;
-        node.scrollIntoView({ block: 'center', behavior: 'auto' });
         const rect = node.getBoundingClientRect();
 
         const dx = window.innerWidth / 2 - (rect.left + rect.width / 2);
@@ -147,7 +146,7 @@ export default function TechTheatrePage() {
                     <div style={{ position: 'relative', width: '1000px', margin: '0 auto', height: '740px' }}>
                         {slides.map((s, i) => {
                             const isActive = activeCard === i;
-                            const isClosing   = isActive && isCollapsing;
+                            const isClosing = isActive && isCollapsing;
                             const { left, top } = getPosition(i);
                             return (
                                 <div
@@ -165,9 +164,22 @@ export default function TechTheatrePage() {
                                     onTransitionEnd={onTransitionEnd}
                                 >
                                     <img src={s.img} alt={s.title} />
+
+                                    {/* always render the close button, only active when expanded */}
+                                    <button
+                                        className="close-card"
+                                        onClick={() => {
+                                            if (!isCollapsing) {
+                                                setIsCollapsing(true);
+                                                setTransformStr('none');
+                                            }
+                                        }}>
+                                        ×
+                                    </button>
+
                                     <div className="text">
                                         <h2 className="section-title">{s.title}</h2>
-                                        {!isActive && <button className="expand">+</button>}
+                                        <button className="expand">+</button>
                                     </div>
                                 </div>
                             );
