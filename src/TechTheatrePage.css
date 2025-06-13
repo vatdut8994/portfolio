@@ -450,7 +450,7 @@
 
 .twoinone {
     display: flex;
-    border-bottom: 1px solid rgb(25, 25, 25);
+    border-bottom: 2px solid rgb(25, 25, 25);
     justify-content: center;
 }
 
@@ -475,6 +475,7 @@
 .text-img{
     display: flex;
     align-items: center;
+    border-bottom: 2px solid rgb(25, 25, 25);
 }
 
 .text-img img{
@@ -512,4 +513,9 @@
 
 .finalset .overlay-title{
     width: 100%;
+}
+
+.soundlight{
+    padding: 50px 20px;
+    justify-content: center;
 }

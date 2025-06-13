@@ -50,12 +50,12 @@ export default function TechTheatrePage() {
                             }} />
                         </div>
                     </div>
-                    <div className="text-img">
+                    <div className="text-img soundlight">
                         <div className='overlay-title'>
                             Sound And Lighting
                             <p>In this group assignment, we interpreted a painting with a song using virtual lighting on the Matt Kizer website. Four members presented, while two ran light and sound cues using a cue sheet.</p>
                         </div>
-                        <img src="/img/minecraft.png" alt="minecraft" />
+                        {/* <img src="/img/minecraft.png" alt="minecraft" /> */}
                     </div>
                     <div className="overlay-title final-learned">
                         What I learned?
