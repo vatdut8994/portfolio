@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TechTheatrePage.css';
-import { img } from 'framer-motion/client';
 
 export default function TechTheatrePage() {
     const [animate, setAnimate] = useState(false);
