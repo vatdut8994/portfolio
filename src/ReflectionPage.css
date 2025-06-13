@@ -11,7 +11,7 @@
 
 /* Title styling */
 .title-reflection {
-    margin-top: 3vh;
+    margin-top: 10vh;
     color: white;
     font-family: var(--open-sans);
     font-weight: 600;
@@ -85,4 +85,28 @@
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
+}
+
+.back-button {
+    position: absolute;
+    top: 74px;
+    left: 28vw;
+    z-index: 10;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.055);
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding-right: 2px;
+    padding-top: 2px;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
 }

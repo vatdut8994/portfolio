@@ -216,7 +216,7 @@ export default function App() {
                             )}
                         </div>
                         <span className="notice">
-                            <strong>My Apologies: </strong> None of these pages work yet, but they will soon! I started this website 2 days ago.
+                            <strong>My Apologies: </strong> None of these pages work yet, but they will soon! I started this website 5 days ago.
                         </span>
                     </div>
                 </div>
