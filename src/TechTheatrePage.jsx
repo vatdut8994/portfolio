@@ -1,3 +1,5 @@
+//TechTheatrePage.jsx
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TechTheatrePage.css';
@@ -16,7 +18,7 @@ export default function TechTheatrePage() {
     const slides = [
         {
             title: 'Lighting and Sound',
-            img: '/img/light-sound.jpg',
+            img: '/tech/light-sound.jpg',
             body: [
                 <>
                     <div className="twoinone">
@@ -27,7 +29,7 @@ export default function TechTheatrePage() {
 
                             </div>
                             <img
-                                src="/img/soundboard.jpeg"
+                                src="/tech/soundboard.jpeg"
                                 alt="Soundboard"
                                 style={{
                                     width: expandedSize.w
@@ -43,7 +45,7 @@ export default function TechTheatrePage() {
                                 Lighting and Shadows
                                 <p>In this assignment, we created six original lighting looks using Front, Back, Top, and Side positions with added gobos or gels. Each look was labeled, totaling 10 pictures.</p>
                             </div>
-                            <img src="/img/matthew.jpeg" alt="Matthew Lighting" style={{
+                            <img src="/tech/matthew.jpeg" alt="Matthew Lighting" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -55,7 +57,7 @@ export default function TechTheatrePage() {
                             Sound And Lighting
                             <p>In this group assignment, we interpreted a painting with a song using virtual lighting on the Matt Kizer website. Four members presented, while two ran light and sound cues using a cue sheet.</p>
                         </div>
-                        {/* <img src="/img/minecraft.png" alt="minecraft" /> */}
+                        {/* <img src="/tech/minecraft.png" alt="minecraft" /> */}
                     </div>
                     <div className="overlay-title final-learned">
                         What I learned?
@@ -71,7 +73,7 @@ export default function TechTheatrePage() {
         },
         {
             title: 'Scenery and Tools',
-            img: '/img/powertool.jpg',
+            img: '/tech/powertool.jpg',
             body: [
                 <>
                     <div className="twoinone">
@@ -80,7 +82,7 @@ export default function TechTheatrePage() {
                                 Birdhouse
                                 <p>In this assignment, we planned, sketched (in pencil and color), and built a birdhouse from our own design. It was assembled using wood glue and a pneumatic staple gun.</p>
                             </div>
-                            <img src="/img/birdhouse.jpeg" alt="Birdhouse Picture" style={{
+                            <img src="/tech/birdhouse.jpeg" alt="Birdhouse Picture" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -92,7 +94,7 @@ export default function TechTheatrePage() {
                                 Tool Museum
                                 <p>In this assignment, we took pictures of ourselves properly using various tools, following specific usage guidelines. Each photo was labeled and clearly displayed on slides.</p>
                             </div>
-                            <img src="/img/drill.jpeg" alt="Tool Usage" style={{
+                            <img src="/tech/drill.jpeg" alt="Tool Usage" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -117,7 +119,7 @@ export default function TechTheatrePage() {
         },
         {
             title: 'Painting',
-            img: '/img/paint.jpg',
+            img: '/tech/paint.jpg',
             body: [
                 <>
                     <div className="twoinone">
@@ -126,7 +128,7 @@ export default function TechTheatrePage() {
                                 Faux Brick and Graffiti
                                 <p>We had to replicate the natural appearance of a brick wall and paint it with graffiti of our initials and added texture with the spatter technique.</p>
                             </div>
-                            <img src="/img/brickwall.jpeg" alt="Faux Brick" style={{
+                            <img src="/tech/brickwall.jpeg" alt="Faux Brick" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -138,7 +140,7 @@ export default function TechTheatrePage() {
                                 Faux Granite
                                 <p>In this piece, we had to replicate the appearance of granite rock, adding depth and texture with shadows and highlights.</p>
                             </div>
-                            <img src="/img/granite.jpeg" alt="Faux Granite" style={{
+                            <img src="/tech/granite.jpeg" alt="Faux Granite" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -152,7 +154,7 @@ export default function TechTheatrePage() {
                                 Faux Plaster Peel
                                 <p>We had to add wood texture with paint, imitating the look of wooden planks, then covered it with paint around a spot to look like plaster peeling off.</p>
                             </div>
-                            <img src="/img/plaster.jpeg" alt="Faux Brickwall" style={{
+                            <img src="/tech/plaster.jpeg" alt="Faux Brickwall" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -164,7 +166,7 @@ export default function TechTheatrePage() {
                                 Faux Rocks
                                 <p>In this piece, we had to replicate the appearance of granite rock, adding depth and texture with shadows and highlights.</p>
                             </div>
-                            <img src="/img/stones.jpeg" alt="Faux Rocks" style={{
+                            <img src="/tech/stones.jpeg" alt="Faux Rocks" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -188,7 +190,7 @@ export default function TechTheatrePage() {
         },
         {
             title: 'Flats',
-            img: '/img/flats.jpg',
+            img: '/tech/flats.jpg',
             body: [
                 <>
                     <div className="text-img finalset">
@@ -196,7 +198,7 @@ export default function TechTheatrePage() {
                             Flats and Final Paint/Set
                             <p>In these assignments, we built Hollywood-style flats by measuring, cutting, and assembling Stiles, Toggles, and Rails. Each person made a flat with a partner, then created a window flat together, all based on planned drawings and a table theme.</p>
                         </div>
-                        <img src="/img/finalset.JPG" alt="Final Set" style={{
+                        <img src="/tech/finalset.JPG" alt="Final Set" style={{
                             width: expandedSize.w
                                 ? `${expandedSize.w - 100}px`
                                 : `${CARD_W - 100}px`,
@@ -219,7 +221,7 @@ export default function TechTheatrePage() {
         },
         {
             title: 'Props',
-            img: '/img/goblet.png',
+            img: '/tech/goblet.png',
             body: [
                 <>
                     <div className="twoinone">
@@ -228,7 +230,7 @@ export default function TechTheatrePage() {
                                 Hobbit House
                                 <p>In this assignment, we built a scale model hobbit house using skills we had learned. Materials included Luan wood, an oatmeal container, packing paper, masking tape, glue, and other available supplies.</p>
                             </div>
-                            <img src="/img/hobbit.jpeg" alt="Hobbit House" style={{
+                            <img src="/tech/hobbit.jpeg" alt="Hobbit House" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -240,7 +242,7 @@ export default function TechTheatrePage() {
                                 Six Goblet - Jane Seymore
                                 <p>In this assignment, we created a goblet inspired by one of the six wives from Six, using all materials provided and any others we could find. The final goblet had to be transformed so none of the original materials were recognizable.</p>
                             </div>
-                            <img src="/img/goblet.jpeg" alt="Six Goblet" style={{
+                            <img src="/tech/goblet.jpeg" alt="Six Goblet" style={{
                                 width: expandedSize.w
                                     ? `${expandedSize.w / 2 - 100}px`
                                     : `${CARD_W / 2 - 100}px`,
@@ -332,7 +334,7 @@ export default function TechTheatrePage() {
             <div className="page-content">
                 <div className={`overview ${animate ? 'show' : ''}`}>
                     <div className="image-container">
-                        <img className="fade-item delay-0" src="/img/theatre.jpg" alt="Theatre" />
+                        <img className="fade-item delay-0" src="/tech/theatre.jpg" alt="Theatre" />
                         <div className="text-overlay">
                             <h2 className="fade-item delay-1 title">Tech Theatre</h2>
                             <h2 className="fade-item delay-2 title title2">Projects</h2>

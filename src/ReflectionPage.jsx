@@ -1,4 +1,5 @@
-// src/ReflectionPage.jsx
+// ReflectionPage.jsx
+
 import React, { useEffect, useState } from 'react';
 import './ReflectionPage.css';   // we’ll put only reflection‐specific overrides here
 import { Link } from 'react-router-dom';
@@ -56,7 +57,7 @@ export default function ReflectionPage() {
       </div>
       <div className="anim-wrapper">
         <img
-          src="/img/group-photo.jpg"
+          src="/tech/group-photo.jpg"
           className={`reflection-pic ${fadeIn ? 'show' : ''} delay-2`}
           alt="Tech Theatre Beginning Last Picture"
         />

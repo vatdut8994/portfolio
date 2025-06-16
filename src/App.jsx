@@ -1,3 +1,5 @@
+//App.jsx
+
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
     Routes,
@@ -160,7 +162,7 @@ export default function App() {
             <div className={`mainapp ${fadeIn ? 'visible' : 'invisible'}`}>
                 <nav>
                     <Link to="/" id="logo">
-                        <img src="/img/logo.png" alt="Logo" />
+                        <img src="/home/logo.png" alt="Logo" />
                         <div>
                             <p className="logotitle">Vatsal</p>
                             <p id="sub-title">Portfolio</p>

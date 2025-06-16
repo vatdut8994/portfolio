@@ -1,3 +1,5 @@
+/* TechTheatrePage.css */
+
 @import url('https://fonts.cdnfonts.com/css/bitsumishi');
 
 :root {
@@ -399,6 +401,10 @@
     padding-top: 1rem;
     /* whatever spacing you like */
     /* remove overflow:hidden or auto here */
+}
+
+.card-body img{
+    filter: brightness(0.9);
 }
 
 .fade-item-body {
