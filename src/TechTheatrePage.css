@@ -233,7 +233,7 @@
 .section-card img {
     height: 70%;
     margin: auto;
-    filter: brightness(0.5);
+    filter: brightness(0.6);
     transition: 0.3s ease-in-out;
 }
 
